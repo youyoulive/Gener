@@ -1,0 +1,8 @@
+*{padding:0px;margin:0px;}
+body{background:#1ABC9C;}
+.login{margin-top:100px;}
+.login_ui{height:140px;position:relative;}
+.login_ui h4{position:absolute;width:100%;top:30px;text-align:center;color:#FFFFFF;}
+.login-screen{background:#EDEFF1;border-radius:5px;padding:40px;}
+.form-group{position:relative;}
+.login-field-icon{position: absolute;top:3px;right:15px;}

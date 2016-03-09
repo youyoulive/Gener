@@ -1,0 +1,65 @@
+<extend name="Public/body-base" />
+<block name="body">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="fui-list"></span> 菜单列表</div>
+        <div class="panel-body">
+            <div class="btn-group">
+                <a class="btn btn-primary" href="{:U('add')}">新增</a>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>URL</th>
+                    <th>规则</th>
+                    <th>排序</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vol">
+                <tr>
+                    <td>{$vol['id']}</td>
+                    <td>{$vol['title']}</td>
+                    <td>{$vol['url']}</td>
+                    <td>{$vol['rule']}</td>
+                    <td>{$vol['sort']}</td>
+                    <td>
+                        <eq name="vol['status']" value="1">
+                            <a title="禁用" data-toggle="tooltip" data-placement="top" href="{:U('status?status=0&id='.$vol['id'])}" class="mag-r-5 ajax">
+                                <span class="fui-check color-green fs-14"></span>
+                            </a>
+                            <else/>
+                            <a title="启用" data-toggle="tooltip" data-placement="top" href="{:U('status?status=1&id='.$vol['id'])}" class="mag-r-5 ajax">
+                                <span class="fui-cross color-red fs-14"></span>
+                            </a>
+                        </eq>
+                    </td>
+                    <td>
+                        <a title="子菜单" data-toggle="tooltip" data-placement="top" href="{:U('lists?pid=' . $vol['id'])}" class="mag-r-5">
+                            <span class="fui-list-numbered color-black fs-14"></span>
+                        </a>
+                        <a title="编辑" data-toggle="tooltip" data-placement="top" href="{:U('edit?id=' . $vol['id'])}" class="mag-r-5">
+                            <span class="fui-new color-green fs-14"></span>
+                        </a>
+                        <a title="删除" data-toggle="tooltip" data-placement="top" href="{:U('delete?id=' . $vol['id'])}" class="ajax mag-r-5 operation-delete">
+                            <span class="fui-trash color-red fs-14"></span>
+                        </a>
+                    </td>
+                </tr>
+                </volist>
+                </tbody>
+            </table>
+        </div>
+        <!-- Panel footer -->
+        <div class="panel-footer">
+
+        </div>
+    </div>
+</block>
